@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TimeTrack</string>
+    <string name="title_timer">Timer</string>
+    <string name="title_projects">Projects</string>
+    <string name="title_settings">Settings</string>
+
+    <!-- Login -->
+    <string name="hint_password_text_field">Password</string>
+    <string name="hint_email_text_field">Email</string>
+    <string name="text_forgot_password_button">Forgot Password?</string>
+    <string name="text_sign_in_button">Sign in</string>
+    <string name="text_sign_up_button">Sign up</string>
+
+    <!-- Error Types -->
+    <string name="error_alert_ok_button_title">OK</string>
+    <string name="error_type_user_unauthorized">We couldn\'t find a account with this email and password combination. Try again or reset your password</string>
+</resources>

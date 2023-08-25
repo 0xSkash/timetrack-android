@@ -11,7 +11,12 @@ import javax.inject.Inject
 class ApiAuthRepository @Inject constructor() : AuthRepository {
 
     override fun login(email: String, password: String): Observable<AuthData> {
-        return Observable.just(AuthData("EWEWEGWEG", User(UUID.randomUUID(), email)))
-            .delay(5000, TimeUnit.MILLISECONDS)
+        return Observable.just(
+            AuthData(
+                "EWEWEGWEG",
+                User(UUID.randomUUID(), email, UUID.randomUUID())
+            )
+        )
+            .delay(1000, TimeUnit.MILLISECONDS)
     }
 }

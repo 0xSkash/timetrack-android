@@ -41,4 +41,9 @@ class LoginViewModel @Inject constructor(
             }
             .addTo(subscriptions)
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        subscriptions.clear()
+    }
 }

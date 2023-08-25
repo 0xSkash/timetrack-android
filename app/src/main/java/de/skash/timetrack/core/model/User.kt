@@ -4,5 +4,6 @@ import java.util.UUID
 
 data class User(
     val id: UUID,
-    val mail: String
+    val mail: String,
+    val defaultWorkspaceId: UUID?
 )

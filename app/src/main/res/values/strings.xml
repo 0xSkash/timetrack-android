@@ -14,4 +14,9 @@
     <!-- Error Types -->
     <string name="error_alert_ok_button_title">OK</string>
     <string name="error_type_user_unauthorized">We couldn\'t find a account with this email and password combination. Try again or reset your password</string>
+    <string name="title_no_workspace_yet_button">No Workspace yet?</string>
+    <string name="hint_workspace_selection">Workspace</string>
+    <string name="hint_organization_selection">Organization</string>
+    <string name="description_workspace_selection">Now, pick the workspace for your projects. It\'s tied to your organization choice.</string>
+    <string name="description_organization_selection">Please select your default organization from the list below. Don\'t worry, you can always change this later from your settings.</string>
 </resources>

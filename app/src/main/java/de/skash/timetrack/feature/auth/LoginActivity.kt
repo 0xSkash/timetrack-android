@@ -12,6 +12,7 @@ import de.skash.timetrack.core.helper.state.loading.LoadingDialog
 import de.skash.timetrack.core.helper.state.loading.loadingDialog
 import de.skash.timetrack.MainActivity
 import de.skash.timetrack.databinding.ActivityLoginBinding
+import de.skash.timetrack.feature.workspace.WorkspaceSelectionBottomSheet
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
@@ -22,6 +23,10 @@ class LoginActivity : AppCompatActivity() {
 
     private val loadingDialog: LoadingDialog by loadingDialog()
 
+    private val workspaceSelectionBottomSheet: WorkspaceSelectionBottomSheet by lazy {
+        WorkspaceSelectionBottomSheet()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -30,9 +35,15 @@ class LoginActivity : AppCompatActivity() {
         bindActions()
 
         viewModel.loginStateLiveData.observe(this) { loginState ->
-            loginState.handle(this, loadingDialog, onSuccess = {
-                getPrefs().saveUserToken(it.bearerToken)
-                getPrefs().saveSelfUser(it.user)
+            loginState.handle(this, loadingDialog, onSuccess = { authData ->
+                getPrefs().saveUserToken(authData.bearerToken)
+                getPrefs().saveSelfUser(authData.user)
+
+                if (authData.user.defaultWorkspaceId == null) {
+                    workspaceSelectionBottomSheet.show(supportFragmentManager, null)
+                    return@observe
+                }
+
                 MainActivity.launch(this)
                 finish()
             })

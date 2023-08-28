@@ -5,6 +5,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
     id("dagger.hilt.android.plugin")
+    id("io.realm.kotlin")
 }
 
 android {
@@ -44,6 +45,11 @@ android {
 
 dependencies {
 
+    // Realm
+    implementation("io.realm.kotlin:library-base:1.10.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0")
+
+
     // Hilt
     implementation("com.google.dagger:hilt-android:2.46.1")
     implementation("androidx.core:core-ktx:1.10.1")
@@ -57,9 +63,10 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
 
     // Rx
-    // Rx
     implementation("io.reactivex.rxjava3:rxkotlin:3.0.1")
     implementation("io.reactivex.rxjava3:rxjava:3.1.6")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-rx3:1.6.4")
+
 
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
     implementation("androidx.core:core-ktx:1.10.1")

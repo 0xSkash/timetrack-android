@@ -11,11 +11,13 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_SHORT
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import de.skash.timetrack.core.helper.fragment.findNavHostFragment
 import de.skash.timetrack.core.helper.prefs.getPrefs
 import de.skash.timetrack.core.helper.prefs.getSelfUser
 import de.skash.timetrack.databinding.ActivityMainBinding
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -35,11 +37,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         val navView: BottomNavigationView = binding.navView
-
-        Snackbar.make(
-            binding.root, "User Email: ${getPrefs().getSelfUser()?.mail}",
-            LENGTH_SHORT
-        ).show()
 
         navController = supportFragmentManager.findNavHostFragment(
             R.id.nav_host_fragment_activity_main

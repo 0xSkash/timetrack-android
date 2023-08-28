@@ -18,4 +18,7 @@ sealed class ErrorType(@StringRes val errorMessage: Int) {
     }
 
     data object UserUnauthenticated : ErrorType(R.string.error_type_user_unauthorized)
+    data object SearchQueryFetchFailed : ErrorType(R.string.error_type_search_history_fetch)
+    data object SearchQueryCreationFailed : ErrorType(R.string.error_type_search_history_creation)
+
 }

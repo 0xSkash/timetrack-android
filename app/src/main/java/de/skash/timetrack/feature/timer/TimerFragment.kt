@@ -1,16 +1,13 @@
 package de.skash.timetrack.feature.timer
 
-import android.Manifest
-import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayoutMediator
 import de.skash.timetrack.R
 import de.skash.timetrack.databinding.FragmentTimerBinding
-import de.skash.timetrack.feature.service.TimeTrackService
-import de.skash.timetrack.feature.service.WorkTimeTrackService
+import de.skash.timetrack.feature.adapter.TimerFragmentStateAdapter
 
 class TimerFragment : Fragment(R.layout.fragment_timer) {
 
@@ -28,41 +25,12 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
 
         _binding = FragmentTimerBinding.bind(view)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            notificationRequestLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-        }
-
-        binding.startTimer.setOnClickListener {
-            val intent = Intent(requireContext(), WorkTimeTrackService::class.java).apply {
-                putExtra(TimeTrackService.TIMER_ACTION, TimeTrackService.START_TIMER)
-            }
-
-            requireActivity().startForegroundService(intent)
-        }
-
-        binding.stopTimer.setOnClickListener {
-            val intent = Intent(requireContext(), WorkTimeTrackService::class.java).apply {
-                putExtra(TimeTrackService.TIMER_ACTION, TimeTrackService.STOP_TIMER)
-            }
-
-            requireActivity().startService(intent)
-        }
-
-        binding.backgroundTimer.setOnClickListener {
-            val intent = Intent(requireContext(), WorkTimeTrackService::class.java).apply {
-                putExtra(TimeTrackService.TIMER_ACTION, TimeTrackService.MOVE_TIMER_TO_BACKGROUND)
-            }
-
-            requireActivity().startService(intent)
-        }
-
-        binding.foregroundTimer.setOnClickListener {
-            val intent = Intent(requireContext(), WorkTimeTrackService::class.java).apply {
-                putExtra(TimeTrackService.TIMER_ACTION, TimeTrackService.MOVE_TIMER_TO_FOREGROUND)
-            }
-
-            requireActivity().startService(intent)
-        }
+        val adapter = TimerFragmentStateAdapter(childFragmentManager, lifecycle)
+        binding.viewPager.adapter = adapter
+        binding.viewPager.offscreenPageLimit = 2
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            tab.setText(adapter.getTitleForPosition(position))
+        }.attach()
     }
 
     override fun onDestroyView() {

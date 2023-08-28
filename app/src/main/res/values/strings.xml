@@ -16,9 +16,16 @@
     <string name="terms_description_text">I agree to</string>
     <string name="terms_of_use_text">Terms of Use</string>
 
+    <!-- Timer -->
+    <string name="title_task">Tasks</string>
+    <string name="title_work_time">Work Time</string>
+
+
     <!-- Error Types -->
     <string name="error_alert_ok_button_title">OK</string>
     <string name="error_type_user_unauthorized">We couldn\'t find a account with this email and password combination. Try again or reset your password</string>
+    <string name="error_type_search_history_fetch">Failed to fetch search history</string>
+    <string name="error_type_search_history_creation">Failed to create search history</string>
     <string name="title_no_workspace_yet_button">No Workspace yet?</string>
     <string name="hint_workspace_selection">Workspace</string>
     <string name="hint_organization_selection">Organization</string>

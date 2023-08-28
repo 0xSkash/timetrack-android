@@ -24,4 +24,9 @@ class RequestPasswordResetFragment :
             dismiss()
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

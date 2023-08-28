@@ -12,6 +12,8 @@ fun <T : Any> Observable<T>.toState(errorType: (Throwable) -> ErrorType): Observ
         }.onErrorReturn {
             //  val httpError = it as? HttpException ?: return@onErrorReturn State.Error(errorType(it))
             ResourceState.Error(errorType(it)) //ErrorType.fromThrowable(httpError) ?: errorType(it))
+        }.doOnNext {
+            println("test")
         }
     )
 }

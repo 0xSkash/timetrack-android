@@ -6,6 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import de.skash.timetrack.core.repository.ApiAuthRepository
 import de.skash.timetrack.core.repository.AuthRepository
+import de.skash.timetrack.core.repository.RealmSearchHistoryRepository
+import de.skash.timetrack.core.repository.SearchHistoryRepository
 import javax.inject.Singleton
 
 @Module
@@ -16,5 +18,11 @@ object AppModule {
     @Provides
     fun provideAuthRepository(): AuthRepository {
         return ApiAuthRepository()
+    }
+
+    @Singleton
+    @Provides
+    fun provideSearchHistory(): SearchHistoryRepository {
+        return RealmSearchHistoryRepository()
     }
 }

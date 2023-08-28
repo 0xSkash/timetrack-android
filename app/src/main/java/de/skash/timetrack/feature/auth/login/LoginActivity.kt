@@ -1,4 +1,4 @@
-package de.skash.timetrack.feature.auth
+package de.skash.timetrack.feature.auth.login
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -12,6 +12,8 @@ import de.skash.timetrack.core.helper.state.loading.LoadingDialog
 import de.skash.timetrack.core.helper.state.loading.loadingDialog
 import de.skash.timetrack.MainActivity
 import de.skash.timetrack.databinding.ActivityLoginBinding
+import de.skash.timetrack.feature.auth.registration.RegistrationFragment
+import de.skash.timetrack.feature.auth.reset.RequestPasswordResetFragment
 import de.skash.timetrack.feature.workspace.WorkspaceSelectionBottomSheet
 
 @AndroidEntryPoint
@@ -25,6 +27,14 @@ class LoginActivity : AppCompatActivity() {
 
     private val workspaceSelectionBottomSheet: WorkspaceSelectionBottomSheet by lazy {
         WorkspaceSelectionBottomSheet()
+    }
+
+    private val requestPasswordResetFragment: RequestPasswordResetFragment by lazy {
+        RequestPasswordResetFragment()
+    }
+
+    private val signUpFragment: RegistrationFragment by lazy {
+        RegistrationFragment()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,8 +68,12 @@ class LoginActivity : AppCompatActivity() {
             )
         }
 
+        binding.signUpButton.setOnClickListener {
+            signUpFragment.show(supportFragmentManager, null)
+        }
+
         binding.forgotPasswordButton.setOnClickListener {
-            //TODO: Present Password reset progress
+            requestPasswordResetFragment.show(supportFragmentManager, null)
         }
     }
 }

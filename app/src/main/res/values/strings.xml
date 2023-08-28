@@ -11,6 +11,11 @@
     <string name="text_sign_in_button">Sign in</string>
     <string name="text_sign_up_button">Sign up</string>
 
+    <!-- Registration -->
+    <string name="hint_name_text_field">Name</string>
+    <string name="terms_description_text">I agree to</string>
+    <string name="terms_of_use_text">Terms of Use</string>
+
     <!-- Error Types -->
     <string name="error_alert_ok_button_title">OK</string>
     <string name="error_type_user_unauthorized">We couldn\'t find a account with this email and password combination. Try again or reset your password</string>

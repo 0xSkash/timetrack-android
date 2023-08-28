@@ -1,4 +1,4 @@
-package de.skash.timetrack.feature.auth
+package de.skash.timetrack.feature.auth.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

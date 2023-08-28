@@ -11,7 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_SHORT
 import com.google.android.material.snackbar.Snackbar
-import de.skash.timetrack.core.helper.findNavHostFragment
+import de.skash.timetrack.core.helper.fragment.findNavHostFragment
 import de.skash.timetrack.core.helper.prefs.getPrefs
 import de.skash.timetrack.core.helper.prefs.getSelfUser
 import de.skash.timetrack.databinding.ActivityMainBinding

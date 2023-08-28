@@ -1,4 +1,4 @@
-package de.skash.timetrack.core.helper
+package de.skash.timetrack.core.helper.fragment
 
 import androidx.annotation.IdRes
 import androidx.fragment.app.FragmentManager
